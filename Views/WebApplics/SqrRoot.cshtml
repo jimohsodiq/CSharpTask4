@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Square Root Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">The Square Root Calculator</h1>
+    
+</div>
+@{
+if(ViewBag.firstNumbers<0 && ViewBag.secondNumbers<0)
+{
+    
+    <p> The number entered is invalid, pls change to a positive number</p>
+    
+}
+else if(ViewBag.result == ViewBag.result2)
+{
+    <p>@ViewBag.firstNumber has the same input @ViewBag.result as the second number @ViewBag.result2</p>
+    <p>Pls enter another sets of numbers</p>
+}
+else if(ViewBag.result > ViewBag.result2)
+{
+<p>The first number as the highest square root of @ViewBag.firstNumber which is @ViewBag.result</p>
+}
+else if (ViewBag.result2 > ViewBag.result)
+{
+<p>The second number as the highest square root of @ViewBag.secondNumber which is @ViewBag.result2</p>
+}
+else if(ViewBag.firstNumber==null & ViewBag.secondNumber==null)
+{
+    <p> Your boxes are empty, pls input a number</p>
+}
+}
+
+<div>
+<form asp-controller= "WebApplics" asp-action="SqrRoot" method = "POST">
+<input type="number" PlaceHolder = "First Number" name= "firstNumber"/>
+<input type="number" PlaceHolder = "Second Number" name = "secondNumber"/>
+<button type="submit">Submit<button/> 
+</form>
+</div>
